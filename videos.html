@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAVIS videos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+  <h1><span class="name">TAVIS</span>Videos</h1>
+  <nav class="buttons"><a href="index.html">&larr; Back to the project page</a></nav>
+</header>
+
+<h2>Policy rollouts (third-person view, half speed)</h2>
+<p>Rollouts of the multi-task &pi;<sub>0</sub> policy with a head camera on GR1T2: a third-person view (left) next to the robot's head camera (right). The captions mark the <span class="legend-head">head fixation</span> and the <span class="legend-grasp">grasp</span> as the GALT detector finds them.</p>
+<div class="videos">
+  <figure><video src="assets/videos/thirdperson/conditional-pick_0.5x_speed.mp4" controls muted playsinline preload="metadata"></video><figcaption><i>conditional-pick</i></figcaption></figure>
+  <figure><video src="assets/videos/thirdperson/wait-then-act_0.5x_speed.mp4" controls muted playsinline preload="metadata"></video><figcaption><i>wait-then-act</i></figcaption></figure>
+  <figure><video src="assets/videos/thirdperson/clutter-pick-cube_0.5x_speed.mp4" controls muted playsinline preload="metadata"></video><figcaption><i>clutter-pick-cube</i></figcaption></figure>
+  <figure><video src="assets/videos/thirdperson/clutter-pick-lift_0.5x_speed.mp4" controls muted playsinline preload="metadata"></video><figcaption><i>clutter-pick-lift</i></figcaption></figure>
+</div>
+
+<h2>Demonstrations: TAVIS-Head (first-person)</h2>
+<p>The head-camera stream of teleoperated demonstrations from the released datasets, with the output of the GALT detector overlaid: the episode, the measured lead and the grasping arm. The frame turns green once the head has reached its final fixation, and ticks along the top edge mark the current time (white), the head arrival (green) and the grasp (red).</p>
+<h3><i>conditional-pick</i> <span class="fn">&middot; conditional information gathering</span></h3>
+<div class="videos four">
+  <figure><video src="assets/videos/firstperson/gr1t2_conditional_pick_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/gr1t2_conditional_pick_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 2</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_conditional_pick_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_conditional_pick_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 2</figcaption></figure>
+</div>
+<h3><i>wait-then-act</i> <span class="fn">&middot; temporal monitoring</span></h3>
+<div class="videos four">
+  <figure><video src="assets/videos/firstperson/gr1t2_wait_then_act_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/gr1t2_wait_then_act_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 2</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_wait_then_act_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_wait_then_act_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 2</figcaption></figure>
+</div>
+<h3><i>clutter-pick-cube</i> <span class="fn">&middot; clutter disambiguation, target defined by appearance</span></h3>
+<div class="videos four">
+  <figure><video src="assets/videos/firstperson/gr1t2_clutter_pick_cube_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/gr1t2_clutter_pick_cube_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 2</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_clutter_pick_cube_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_clutter_pick_cube_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 2</figcaption></figure>
+</div>
+<h3><i>clutter-pick-lift</i> <span class="fn">&middot; clutter disambiguation, target defined by language</span></h3>
+<div class="videos four">
+  <figure><video src="assets/videos/firstperson/gr1t2_clutter_pick_lift_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/gr1t2_clutter_pick_lift_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 2</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_clutter_pick_lift_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_clutter_pick_lift_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 2</figcaption></figure>
+</div>
+<h3><i>multi-shelf-scan</i> <span class="fn">&middot; vertical workspace search</span></h3>
+<div class="videos four">
+  <figure><video src="assets/videos/firstperson/gr1t2_multi_shelf_scan_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/gr1t2_multi_shelf_scan_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 2</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_multi_shelf_scan_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_multi_shelf_scan_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 2</figcaption></figure>
+</div>
+
+<h2>Demonstrations: TAVIS-Hands (first-person)</h2>
+<p>Head camera (top), occluded or masked by design, and the two wrist cameras (bottom), which provide the views needed to find and grasp the target.</p>
+<h3><i>peeking-box</i> <span class="fn">&middot; looking into a container</span></h3>
+<div class="videos four">
+  <figure><video src="assets/videos/firstperson/gr1t2_peeking_box_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/gr1t2_peeking_box_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 2</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_peeking_box_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_peeking_box_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 2</figcaption></figure>
+</div>
+<h3><i>occluded-reach</i> <span class="fn">&middot; reaching around an occluder</span></h3>
+<div class="videos four">
+  <figure><video src="assets/videos/firstperson/gr1t2_occluded_reach_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/gr1t2_occluded_reach_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 2</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_occluded_reach_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_occluded_reach_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 2</figcaption></figure>
+</div>
+<h3><i>blocked-clutter-pick-cube</i> <span class="fn">&middot; wrist-only search</span></h3>
+<div class="videos four">
+  <figure><video src="assets/videos/firstperson/gr1t2_blocked_clutter_pick_cube_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/gr1t2_blocked_clutter_pick_cube_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>GR1T2, demonstration 2</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_blocked_clutter_pick_cube_000.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 1</figcaption></figure>
+  <figure><video src="assets/videos/firstperson/reachy2_blocked_clutter_pick_cube_001.mp4" controls muted playsinline preload="metadata"></video><figcaption>Reachy2, demonstration 2</figcaption></figure>
+</div>
+
+<footer>Contact: <a href="mailto:tavis.benchmark@gmail.com">tavis.benchmark@gmail.com</a></footer>
+</main>
+</body>
+</html>

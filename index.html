@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAVIS: Egocentric Active Vision and Anticipatory Gaze in Imitation Learning</title>
+  <meta name="description" content="TAVIS is a simulation benchmark for active-vision imitation learning: two task suites on two humanoid torsos, paired head-camera vs fixed-camera evaluation, and GALT, a metric for anticipatory gaze.">
+  <!-- Link previews (LinkedIn, etc.). og:image must be an absolute URL: update it once the domain is set. -->
+  <meta property="og:title" content="TAVIS: A Benchmark for Egocentric Active Vision and Anticipatory Gaze in Imitation Learning">
+  <meta property="og:description" content="Two task suites, two humanoid torsos, ~2200 demonstrations, paired head-camera vs fixed-camera evaluation, and GALT, a metric for anticipatory gaze.">
+  <meta property="og:image" content="assets/img/tavis_overview.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+<header>
+  <h1><span class="name">TAVIS</span>A Benchmark for Egocentric Active Vision and Anticipatory Gaze in Imitation Learning</h1>
+  <p class="authors"><a href="https://www.spigler.net/giacomo">Giacomo Spigler</a></p>
+  <p class="affiliation">Department of Intelligent Systems, Tilburg University</p>
+  <nav class="buttons">
+    <a href="https://arxiv.org/abs/2605.07943">Paper (arXiv)</a>
+    <a href="https://github.com/spiglerg/tavis">Code</a>
+    <a href="https://huggingface.co/tavis-benchmark">Datasets &amp; models</a>
+    <a href="videos.html">Videos</a>
+  </nav>
+</header>
+
+<figure>
+  <img class="figure" src="assets/img/tavis_overview.png" alt="Overview of the TAVIS benchmark: TAVIS-Head and TAVIS-Hands task suites, the GR1T2 and Reachy2 robots, teleoperated datasets on Hugging Face, and the evaluation protocol (headcam vs fixedcam, ID vs OOD, GALT).">
+  <figcaption>TAVIS at a glance: two task suites on two humanoid torsos, first-person VR teleoperation datasets, and an evaluation protocol that pairs an active head camera with a fixed workspace camera, in- and out-of-distribution splits, and the GALT metric for anticipatory gaze. <a href="assets/img/tavis_overview.pdf">Download (PDF)</a></figcaption>
+</figure>
+
+<h2>Abstract</h2>
+<p class="abstract">Active vision &ndash; where a policy controls its own gaze during manipulation &ndash; has emerged as a key capability for imitation learning, with multiple independent systems demonstrating its benefits in the past year. Yet there is no shared benchmark to compare approaches or quantify what active vision contributes, on which task types, and under what conditions. We introduce TAVIS, evaluation infrastructure for active-vision imitation learning, with two complementary task suites &ndash; TAVIS-Head (5 tasks, global search via pan/tilt necks) and TAVIS-Hands (3 tasks, local occlusion via wrist cameras) &ndash; on two humanoid torso embodiments (GR1T2, Reachy2), built on IsaacLab. TAVIS provides three evaluation primitives: a paired headcam-vs-fixedcam protocol on identical demonstrations; GALT (Gaze-Action Lead Time), a novel metric grounded in cognitive science and HRI that quantifies anticipatory gaze in learned policies; and procedural ID/OOD splits. Baseline experiments with Diffusion Policy and &pi;<sub>0</sub> reveal that (i) active vision generally helps, consistently across training runs, but benefits are task-conditional rather than uniform; (ii) multi-task policies degrade sharply under controlled distribution shifts on both suites; and (iii) imitation alone yields anticipatory gaze that lands on the task-relevant object, with lead times comparable to those of the human demonstrations, although head motion is less smooth than in the demonstrations, an effect of action chunking that success rate does not reveal.</p>
+
+<h2>Videos</h2>
+<p>Rollouts of the multi-task &pi;<sub>0</sub> policy with a head camera on GR1T2, shown at half speed: a third-person view (left) next to the robot's own head camera (right). The captions mark the <span class="legend-head">head fixation</span> and the <span class="legend-grasp">grasp</span> as the GALT detector finds them: the head settles on the target well before the hand gets there.</p>
+<div class="videos">
+  <figure><video src="assets/videos/thirdperson/conditional-pick_0.5x_speed.mp4" autoplay muted loop playsinline controls preload="metadata"></video><figcaption><i>conditional-pick</i>: the color of the card says which object to pick.</figcaption></figure>
+  <figure><video src="assets/videos/thirdperson/wait-then-act_0.5x_speed.mp4" autoplay muted loop playsinline controls preload="metadata"></video><figcaption><i>wait-then-act</i>: wait for the light to turn green, then pick.</figcaption></figure>
+  <figure><video src="assets/videos/thirdperson/clutter-pick-cube_0.5x_speed.mp4" autoplay muted loop playsinline controls preload="metadata"></video><figcaption><i>clutter-pick-cube</i>: find the red cube among distractors.</figcaption></figure>
+  <figure><video src="assets/videos/thirdperson/clutter-pick-lift_0.5x_speed.mp4" autoplay muted loop playsinline controls preload="metadata"></video><figcaption><i>clutter-pick-lift</i>: find and lift the object named in the prompt.</figcaption></figure>
+</div>
+<p class="small"><a href="videos.html">More videos &rarr;</a> first-person demonstrations for all eight tasks and both robots.</p>
+
+<h2>Tasks</h2>
+<p>TAVIS has two suites on two humanoid torsos (Fourier GR1T2 and Pollen Robotics Reachy2), with about 2,200 teleoperated demonstrations in LeRobot v3.0 format. Every demonstration records the head camera, a fixed workspace camera and both wrist cameras at the same time, so policies can be trained on the same demonstrations with or without control of their own viewpoint. Each task isolates one function of active vision:</p>
+<div class="suites">
+  <div>
+    <h3>TAVIS-Head <span class="fn">&middot; head camera on a pan/tilt neck</span></h3>
+    <ul class="tasks">
+      <li><i>conditional-pick</i> <span class="fn">&middot; conditional information gathering</span></li>
+      <li><i>wait-then-act</i> <span class="fn">&middot; temporal monitoring</span></li>
+      <li><i>clutter-pick-cube</i> <span class="fn">&middot; clutter disambiguation, target defined by appearance</span></li>
+      <li><i>clutter-pick-lift</i> <span class="fn">&middot; clutter disambiguation, target defined by language</span></li>
+      <li><i>multi-shelf-scan</i> <span class="fn">&middot; vertical workspace search</span></li>
+    </ul>
+  </div>
+  <div>
+    <h3>TAVIS-Hands <span class="fn">&middot; wrist cameras, head view occluded</span></h3>
+    <ul class="tasks">
+      <li><i>peeking-box</i> <span class="fn">&middot; looking into a container</span></li>
+      <li><i>occluded-reach</i> <span class="fn">&middot; reaching around an occluder</span></li>
+      <li><i>blocked-clutter-pick-cube</i> <span class="fn">&middot; wrist-only search</span></li>
+    </ul>
+  </div>
+</div>
+<figure>
+  <img class="figure" src="assets/img/task_gallery.jpg" alt="One demonstration per task: eight frames per task from the head camera (TAVIS-Head) or the wrist camera of the grasping arm (TAVIS-Hands).">
+  <figcaption>One demonstration per task (GR1T2): head camera for TAVIS-Head, wrist camera of the grasping arm for TAVIS-Hands. Columns are aligned to task events: <span class="legend-head">blue</span> marks the head arriving at its final fixation and <span class="legend-grasp">orange</span> the grasp, so the interval between them is the GALT lead.</figcaption>
+</figure>
+
+<h2>Citation</h2>
+<div class="bibtex">
+<button type="button" onclick="navigator.clipboard.writeText(document.getElementById('bib').innerText).then(()=>{this.textContent='Copied'; setTimeout(()=>this.textContent='Copy',1500)})">Copy</button>
+<pre id="bib">@article{spigler2026tavis,
+  title={TAVIS: A Benchmark for Egocentric Active Vision and Anticipatory Gaze in Imitation Learning},
+  author={Spigler, Giacomo},
+  journal={arXiv preprint arXiv:2605.07943},
+  year={2026}
+}</pre>
+</div>
+
+<footer>Contact: <a href="mailto:tavis.benchmark@gmail.com">tavis.benchmark@gmail.com</a></footer>
+</main>
+</body>
+</html>
